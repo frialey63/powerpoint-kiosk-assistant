@@ -29,8 +29,10 @@ Private Sub GotoSlideOne()
     For Each ssWin In SlideShowWindows
         If IsMerged(ssWin.Presentation.name) Then
             With ssWin
+                If Not .Active Then
+                    .Activate
+                End If
                .View.GotoSlide 1
-               .Activate
             End With
         End If
     Next
